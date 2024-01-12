@@ -36,14 +36,17 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests((authorize) ->
-                        authorize.requestMatchers("/register/**").permitAll()
-                                .requestMatchers("/index").permitAll()
-                                .requestMatchers("/dashboard").authenticated())
+                        authorize.requestMatchers("/register").permitAll()
+                                .requestMatchers("/resources/**").permitAll()
+                                .requestMatchers("/static/**").permitAll()
+                                .requestMatchers("/images/**").permitAll()
+                                .requestMatchers("/css/**").permitAll()
+                                .requestMatchers("/index").authenticated())
                 .formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/dashboard")
+                                .defaultSuccessUrl("/index")
                                 .permitAll()
                 )
                 .logout(

@@ -3,6 +3,8 @@ package cat201.group37.springstudentexpensetrackerms.controller;
 import cat201.group37.springstudentexpensetrackerms.entity.User;
 import cat201.group37.springstudentexpensetrackerms.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,13 +21,16 @@ public class AuthController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping({"/", "/index"})
-    public String index() {
-        return "index";
-    }
+    public String index(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        // Remember, we use email to login
+        String email = authentication.getName();
 
-    @GetMapping("/dashboard")
-    public String dashboard() {
-        return "dashboard";
+        User user = userRepository.findByEmail(email);
+        String usernameVal = user.getUsername(); // Replace "columnName" with the actual column name
+
+        model.addAttribute("usernameVal", usernameVal);
+        return "index";
     }
     @GetMapping("/register")
     public String register(Model model) {
