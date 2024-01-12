@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - DuitWise</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <!-- Include Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+<div th:insert="fragments/navbar :: navbar">  </div>
+
+<div>
+  <h1 class="text-center">Welcome back, <span th:text="${usernameVal}"></span>!</h1>
+
+  <!--    Menu for selecting modules-->
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <a href="#" class="text-decoration-none">
+          <div class="card mx-auto" style="width: 18rem;">
+            <img th:src="@{/images/journaling.png}" class="card-img-top" alt="log expenses" height="200">
+            <div class="card-body">
+              <h5 class="card-title">Record your expenses</h5>
+              <p class="card-text">Tired of your wallet feeling lighter than your brain after finals? Fear not, savvy Malaysian uni pals! With this feature, effortlessly track every ringgit and sen you spend.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="#" class="text-decoration-none">
+          <div class="col">
+            <div class="card mx-auto" style="width: 18rem;">
+              <img th:src="@{/images/market-research.png}" class="card-img-top" alt="spending habits" height="200">
+              <div class="card-body">
+                <h5 class="card-title">Spending habits</h5>
+                <p class="card-text">Discover where your money goes faster than your Wi-Fi during online lectures! Dive into the spending jungle and unveil the mysteries of your budgeting habits.</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="#" class="text-decoration-none">
+          <div class="col">
+            <div class="card mx-auto" style="width: 18rem;">
+              <img th:src="@{/images/tips.png}" class="card-img-top" alt="financial goal" height="200">
+              <div class="card-body">
+                <h5 class="card-title">Tabung</h5>
+                <p class="card-text">Dreaming of that epic vacay or finally upgrading from Maggi to
+                  fine dining? Set your finance goals and watch your savings grow and fly to the
+                  moon!</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+
+<!-- include javascript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+</html>
