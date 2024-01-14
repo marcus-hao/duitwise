@@ -41,6 +41,7 @@ public class SecurityConfig {
                                 .requestMatchers("/static/**").permitAll()
                                 .requestMatchers("/images/**").permitAll()
                                 .requestMatchers("/css/**").permitAll()
+                                .requestMatchers("/expenses/**").authenticated()
                                 .requestMatchers("/index").authenticated())
                 .formLogin(
                         form -> form
