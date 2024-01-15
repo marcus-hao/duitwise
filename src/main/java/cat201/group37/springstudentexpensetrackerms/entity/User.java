@@ -2,6 +2,8 @@ package cat201.group37.springstudentexpensetrackerms.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="users")
 public class User {
@@ -18,6 +20,10 @@ public class User {
 
     @Column(nullable = false)
     private String username;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Expense> expenses;
+
     public Long getId() {
         return id;
     }
@@ -48,5 +54,13 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public List<Expense> getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(List<Expense> expenses) {
+        this.expenses = expenses;
     }
 }

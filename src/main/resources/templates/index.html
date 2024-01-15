@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dashboard - DuitWise</title>
   <link rel="stylesheet" th:href="@{/css/styles.css}">
   <!-- Include Bootstrap CSS -->
@@ -18,7 +19,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-4">
-        <a href="#" class="text-decoration-none">
+        <a th:href="@{/expenses}" href="#" class="text-decoration-none">
           <div class="card mx-auto" style="width: 18rem;">
             <img th:src="@{/images/journaling.png}" class="card-img-top" alt="log expenses" height="200">
             <div class="card-body">
