@@ -34,7 +34,7 @@ public class TabungController {
         return "tabung/list";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/create")
     public String showCreateTabungForm(Model model) {
         model.addAttribute("tabung", new Tabung());
         return "tabung/create";
@@ -74,6 +74,26 @@ public class TabungController {
         // Write back to DB
         tabungService.updateTabung(tabung);
 
+        return "redirect:/tabung";
+    }
+
+    @GetMapping("/fund/{id}")
+    public String showFundTabungForm(@PathVariable Long id, Model model) {
+        Tabung tabung = tabungService.getTabungById(id);
+        model.addAttribute("tabung", tabung);
+        return "tabung/fund";
+    }
+
+    @PostMapping("/fund/{id}")
+    public String fundTabung(@PathVariable Long id,
+                             @RequestParam("fundedAmount") double fundedAmount) {
+        // Ugly hack
+        Tabung tabung = tabungService.getTabungById(id);
+
+        // Update the funded amount in the db
+        double updatedAmount = tabung.getFunded_amount() + fundedAmount;
+        tabung.setFunded_amount(updatedAmount);
+        tabungService.updateTabung(tabung);
         return "redirect:/tabung";
     }
 

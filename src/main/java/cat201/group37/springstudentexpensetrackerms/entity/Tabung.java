@@ -20,8 +20,8 @@ public class Tabung {
     @Column(name = "target_amount", nullable = false)
     private Double target_amount;
 
-    @Column(name = "remaining_amount", nullable = false)
-    private Double remaining_amount;
+    @Column(name = "funded_amount", nullable = false)
+    private Double funded_amount = 0.0;
 
     @Column(name = "start_date", nullable = false)
     private LocalDate start_date;
@@ -57,12 +57,12 @@ public class Tabung {
         this.target_amount = target_amount;
     }
 
-    public Double getRemaining_amount() {
-        return remaining_amount;
+    public Double getFunded_amount() {
+        return funded_amount;
     }
 
-    public void setRemaining_amount(Double remaining_amount) {
-        this.remaining_amount = remaining_amount;
+    public void setFunded_amount(Double remaining_amount) {
+        this.funded_amount = remaining_amount;
     }
 
     public LocalDate getStart_date() {
@@ -87,5 +87,13 @@ public class Tabung {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
