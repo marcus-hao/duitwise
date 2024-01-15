@@ -8,24 +8,7 @@
 </head>
 <body>
 <!--Navbar-->
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <!-- Brand -->
-    <a class="navbar-brand" href="#">My Expense Logbook</a>
-
-    <!-- Toggler/collapsibe Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/expenses}"> Expense Logbook </a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<div th:insert="fragments/navbar :: navbar"></div>
 <!--Navbar-->
 <br>
 <br>
@@ -35,8 +18,8 @@
             <h1 class="text-center"> Create New Expense </h1>
             <div class="card-body">
                 <form th:action="@{/expenses}" th:object = "${expense}" method="POST">
-                    <div class="form-group">
-                        <label> Enter Amount </label>
+                    <div class="form-group mb-3">
+                        <label> Amount </label>
                         <input
                                 type="number"
                                 name="amount"
@@ -46,30 +29,34 @@
                         />
                     </div>
 
-                    <!--                    Change this to a dropdown later-->
-                    <div class="form-group">
-                        <label> Enter Type </label>
-                        <input
-                                type="text"
-                                name="category"
-                                th:field = "*{type}"
-                                class = "form-control"
-                                placeholder="Enter type of your purchase"
-                        />
+                    <div class="form-group mb-3">
+                        <label> Type of expense </label>
+                        <div class="input-group">
+                            <select name="type" class="form-control">
+                                <option value="">Click to select</option>
+                                <option value="Food">Food</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Groceries">Groceries</option>
+                                <option value="Fashion">Fashion</option>
+                                <option value="Others">Other expenses</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label> Enter Description </label>
-                        <input
+                    <div class="form-group mb-3">
+                        <label> Description </label>
+                        <textarea
                                 type="text"
                                 name="description"
                                 th:field = "*{description}"
                                 class = "form-control"
-                                placeholder="Enter description of your purchase"
-                        />
+                                placeholder="Enter description of your expense"
+                                rows="3"
+                        ></textarea>
                     </div>
 
-                    <div class ="box-footer">
+                    <div class="box-footer d-flex justify-content-center mb-3">
                         <button type="submit" class="btn btn-primary">
                             Create
                         </button>

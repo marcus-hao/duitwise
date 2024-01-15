@@ -23,3 +23,7 @@
 .card-text {
     font-size: 1rem;
 }
+
+.active {
+    color: white;   /* Make the active nav-item pop out more */
+}
