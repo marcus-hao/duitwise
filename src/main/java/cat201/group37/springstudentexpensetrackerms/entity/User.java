@@ -24,6 +24,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Expense> expenses;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Tabung> tabungs;
+
     public Long getId() {
         return id;
     }
