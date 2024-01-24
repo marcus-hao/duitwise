@@ -18,7 +18,7 @@
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
             <h1 class="text-center"> Edit your Tabung </h1>
             <div class="card-body">
-                <form th:action="@{/tabung}" th:object="${tabung}" method="POST">
+                <form th:action="@{/tabung/edit/{id} (id=${tabung.tabung_id})}" th:object="${tabung}" method="POST">
                     <div class="form-group mb-3">
                         <label> Rename Tabung. </label>
                         <input
