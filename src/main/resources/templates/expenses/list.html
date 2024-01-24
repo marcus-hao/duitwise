@@ -28,6 +28,7 @@
       <th>  Amount </th>
       <th>  Category </th>
       <th>  Description </th>
+      <th>  Date created </th>
       <th> Actions </th>
     </tr>
     </thead>
@@ -37,6 +38,7 @@
       <td th:text="${expense.amount}"></td>
       <td th:text="${expense.type}"></td>
       <td th:text="${expense.description}"></td>
+      <td th:text="${expense.dateCreated}"></td>
       <td>
         <div class="btn-toolbar" role="group" aria-label="Expense actions">
           <a th:href= "@{/expenses/edit/{id}(id=${expense.expense_id})}"
